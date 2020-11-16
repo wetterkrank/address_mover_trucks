@@ -1,0 +1,9 @@
+<%= form_for(@booking) do |f| %>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %>
+  <%= f.label :end_date %>
+  <%= f.number_field :end_date %>
+  <%= f.submit %>
+<% end %>
