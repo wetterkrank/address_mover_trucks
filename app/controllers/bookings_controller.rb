@@ -17,9 +17,11 @@ class BookingsController < ApplicationController
       def create
         @booking = Booking.new(booking_params)
         @truck = Truck.find(params[:truck_id])
+        @booking.user = current_user
         @booking.truck = @truck
-        @booking.save
-        redirect_to booking_path(@booking)
+        if @booking.save
+          redirect_to booking_path(@booking)
+        end
       end
 
       def edit
@@ -30,10 +32,10 @@ class BookingsController < ApplicationController
         @booking = Booking.new(booking_params)
         @truck = Truck.find(params[:truck_id])
         @booking.update(booking_params)
-        redirect_to booking_path(@booking)
+        redirect_to truck_booking_path(@booking)
       end
     
-      privates
+      private
     
       def booking_params
         params.require(:booking).permit(:status, :start_date, :end_date)
