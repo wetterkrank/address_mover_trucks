@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 2020_11_17_113902) do
     t.date "start_date"
     t.date "end_date"
     t.string "status"
-    t.bigint "trucks_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "truck_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["trucks_id"], name: "index_bookings_on_trucks_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["truck_id"], name: "index_bookings_on_truck_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "trucks", force: :cascade do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_113902) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "trucks", column: "trucks_id"
-  add_foreign_key "bookings", "users", column: "users_id"
+  add_foreign_key "bookings", "trucks"
+  add_foreign_key "bookings", "users"
   add_foreign_key "trucks", "users"
 end

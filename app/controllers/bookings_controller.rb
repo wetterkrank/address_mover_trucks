@@ -17,9 +17,22 @@ class BookingsController < ApplicationController
       def create
         @booking = Booking.new(booking_params)
         @truck = Truck.find(params[:truck_id])
+        @booking.user = current_user
         @booking.truck = @truck
-        @booking.save
-        redirect_to booking_path(@booking)
+        if @booking.save
+          redirect_to booking_path(@booking)
+        end
+      end
+
+      def edit
+        @booking = Booking.find(params[:id])
+      end
+
+      def update
+        @booking = Booking.new(booking_params)
+        @truck = Truck.find(params[:truck_id])
+        @booking.update(booking_params)
+        redirect_to truck_booking_path(@booking)
       end
     
       private
