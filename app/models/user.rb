@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # has_many :trucks
-  # has_many :bookings
+  has_many :trucks
+  has_many :bookings
   
 end
