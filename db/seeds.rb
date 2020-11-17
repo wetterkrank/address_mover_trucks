@@ -13,17 +13,6 @@ Truck.destroy_all
 User.destroy_all
 puts 'Database clean ✅'
 
-10.times do 
-  Truck.create!(
-    title: Faker::Vehicle.make_and_model,
-    location: ['Berlin', 'Hamburg', 'Munich'].sample,
-    size: ['Large SUV', 'Pick-Up Truck', 'Small Van', 'Large Van'].sample,
-    price_per_day: rand(25..100),
-    description: Faker::Lorem.paragraph(sentence_count: 2),
-  )
-end
-
-
 user = User.new
 user.email = 'christoph.harlander@hotmail.com'
 user.password = '123456'
@@ -39,6 +28,17 @@ user.email = 'chau.harlander@gmail.com'
 user.password = '123456'
 user.save!
 
+10.times do 
+  truck = Truck.new(
+    title: Faker::Vehicle.make_and_model,
+    location: ['Berlin', 'Hamburg', 'Munich'].sample,
+    size: ['Large SUV', 'Pick-Up Truck', 'Small Van', 'Large Van'].sample,
+    price_per_day: rand(25..100),
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+  )
+  truck.user = user
+  truck.save
+end
 
 puts "Done! Created #{User.count} users."
 puts "Created #{Truck.count} trucks."

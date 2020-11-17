@@ -6,7 +6,7 @@ class CreateTrucks < ActiveRecord::Migration[6.0]
       t.integer :price_per_day
       t.string :size
       t.text :description
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       #Ex:- :null => false
       t.timestamps
     end
