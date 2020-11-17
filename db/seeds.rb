@@ -10,6 +10,7 @@ require 'faker'
 
 puts 'Cleaning database now...'
 Truck.destroy_all
+User.destroy_all
 puts 'Database clean ✅'
 
 10.times do 
@@ -22,4 +23,22 @@ puts 'Database clean ✅'
   )
 end
 
-puts "Done! Created #{Truck.count} trucks."
+
+user = User.new
+user.email = 'christoph.harlander@hotmail.com'
+user.password = '123456'
+user.save!
+
+user = User.new
+user.email = 'hola.harlander@hotmail.com'
+user.password = '123456'
+user.save!
+
+user = User.new
+user.email = 'chau.harlander@gmail.com'
+user.password = '123456'
+user.save!
+
+
+puts "Done! Created #{User.count} users."
+puts "Created #{Truck.count} trucks."
