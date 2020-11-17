@@ -1,4 +1,5 @@
 class Truck < ApplicationRecord
+has_many :users
 
   validates :title, presence: true
   validates :title, length: { in: 5..100 }
