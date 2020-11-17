@@ -1,4 +1,7 @@
 class Truck < ApplicationRecord
+belongs_to :user
+has_many :users, through: :bookings
+has_many :bookings
 
   validates :title, presence: true
   validates :title, length: { in: 5..100 }
