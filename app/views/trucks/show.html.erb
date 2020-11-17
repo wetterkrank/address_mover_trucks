@@ -1,0 +1,34 @@
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <h3><%= @truck.title %></h3>
+      <table class="table table-bordered">
+        <tbody>
+          <thead>
+           <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Price / Day</th>
+            <th>Size</th>
+            <th>Description</th>
+            <th>Photos</th>
+           </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @truck.title %></td>
+              <td><%= @truck.location %></td>
+              <td><%= @truck.price_per_day.to_f/100 %></td>
+              <td><%= @truck.size %></td>
+              <td><%= @truck.description %></td>
+              <td><%= "Photo Placeholder" %></td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= link_to 'Back to overview', trucks_path %>
+
+</div>
