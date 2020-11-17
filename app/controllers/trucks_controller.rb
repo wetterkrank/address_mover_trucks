@@ -1,5 +1,6 @@
 class TrucksController < ApplicationController
   before_action :find_truck, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
     @trucks = Truck.all
