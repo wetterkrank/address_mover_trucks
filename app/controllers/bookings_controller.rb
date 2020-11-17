@@ -29,10 +29,9 @@ class BookingsController < ApplicationController
       end
 
       def update
-        @booking = Booking.new(booking_params)
-        @truck = Truck.find(params[:truck_id])
+        @booking = Booking.find(params[:id])
         @booking.update(booking_params)
-        redirect_to truck_booking_path(@booking)
+        redirect_to booking_path(@booking.id)
       end
     
       private

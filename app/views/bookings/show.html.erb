@@ -3,3 +3,5 @@
 <h2><%= @booking.status %></h2>
 <p><%= @booking.start_date %></p>
 <p><%= @booking.end_date %></p>
+
+<%= link_to 'Edit this booking' , edit_booking_path(@booking) %>
