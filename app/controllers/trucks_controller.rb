@@ -1,15 +1,19 @@
 class TrucksController < ApplicationController
   before_action :find_truck, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @trucks = Truck.all
+    # @trucks = Truck.all
+    @trucks = policy_scope(Truck).order(created_at: :desc)
   end
   
   def show
+    authorize @truck
   end
 
   def new
     @truck = Truck.new
+    authorize @truck
   end
 
   def create
