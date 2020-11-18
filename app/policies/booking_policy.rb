@@ -8,7 +8,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    # Truck owner can't book own truck
+    # Fancy way from https://github.com/andrerferrer/pundit-outsourcing-demo
+    TruckPolicy.new(user, record.truck).not_owner? || user_is_admin?
+    # user != record.truck.user || user_is_admin?
   end
 
   def show?
@@ -26,7 +29,6 @@ class BookingPolicy < ApplicationPolicy
     user_is_admin?
   end
 
-  private
 
   def user_is_admin?
     user.admin
