@@ -24,7 +24,6 @@ class TruckPolicy < ApplicationPolicy
     user_is_admin?
   end
 
-  private
 
   def user_is_admin?
     user.admin
@@ -32,6 +31,11 @@ class TruckPolicy < ApplicationPolicy
 
   def user_is_owner?
     user == record.user
+  end
+
+  # Used in BookingPolicy
+  def not_owner?
+    user != record.user
   end
 
 end

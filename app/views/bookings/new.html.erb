@@ -1,18 +1,18 @@
 <div class="container mt-5">
-<div class="card">
-<h4><strong> Information about the truck</strong></h4>
-<p>Title: <%=@truck.title %></p>
-<p>Location: <%= @truck.location %></p>
-<p>Price per day:€  <%= @truck.price_per_day.to_f/100 %>
-<p>Size of truck: <%= @truck.size %>
-<p>Descrtiption: <%= @truck.description %>
-<hr>
-<h4><strong>When do you want to reserve it? </strong></h4>
-<%= simple_form_for [ @truck, @booking ] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Submit", class: "btn btn-success" %>
-<% end %>
-</div>
+  <div class="card">
+    <h4><strong> Information about the truck</strong></h4>
+    <p>Title: <%= @truck.title %></p>
+    <p>Location: <%= @truck.location %></p>
+    <p>Price per day: € <%= @truck.price_per_day.to_f/100 %>
+    <p>Truck size: <%= @truck.size %>
+    <p>Description: <%= @truck.description %>
+    <hr>
+    <h4><strong>When do you want to reserve it? </strong></h4>
+    <%= simple_form_for [ @truck, @booking ] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>
 

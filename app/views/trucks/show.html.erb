@@ -20,7 +20,7 @@
       <br>
 
       <div class="d-flex justify-content-center link">
-        <% unless current_user == @truck.user %>
+        <% if policy(@truck).not_owner? || policy(@truck).user_is_admin? %>
           <%= link_to 'Book' , new_truck_booking_path(@truck, @bookings), class: "btn btn-primary btn-lg w-50" %>
         <% end %>
      </div>

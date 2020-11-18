@@ -13,17 +13,17 @@ class BookingsController < ApplicationController
 
   def new
     @truck = Truck.find(params[:truck_id])
-    @booking = Booking.new
+    @booking = Booking.new(truck: @truck)
     authorize @booking
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    authorize @booking
     @truck = Truck.find(params[:truck_id])
-    @booking.user = current_user
-    @booking.status = "Hello"
+    @booking = Booking.new(booking_params)
     @booking.truck = @truck
+    @booking.user = current_user
+    authorize @booking
+    @booking.status = "pending"
     if @booking.save
       redirect_to booking_path(@booking)
     end
