@@ -7,7 +7,6 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-
   def create?
     true
   end
@@ -18,8 +17,8 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    # Allow this only to the seller (truck owner) or admin
-    user == record.truck.user || user_is_admin?
+    # Allow this only to the buyer/seller (truck owner) or admin
+    user == record.user || user == record.truck.user || user_is_admin?
   end
 
   def destroy?
