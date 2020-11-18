@@ -5,7 +5,7 @@
   <% @bookings.each do |booking| %>
   <p>Name: <%= booking.truck.title %><p>
   <p>Location: <%= booking.truck.location %><p>
-  <p>Price per day: <%= booking.truck.price_per_day %><p>
+  <p>Price per day:€<%= booking.truck.price_per_day.to_f/100 %><p>
   <p>Size of truck: <%= booking.truck.size %><p>
   <p>Description: <%= booking.truck.description %><p>
   <p>Status: <%= booking.status %> <p>
