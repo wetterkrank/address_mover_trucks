@@ -1,36 +1,38 @@
-<div class="container mt-5">
+<div class="container mt-5 justify-content-center">
+<div class="card d-flex justify-content-space-around">
 
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <h3><%= @truck.title %></h3>
-      <table class="table table-bordered">
-        <tbody>
-          <thead>
-           <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Price / Day</th>
-            <th>Size</th>
-            <th>Description</th>
-            <th>Photos</th>
-            <th>Book it </th>
-           </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= @truck.title %></td>
-              <td><%= @truck.location %></td>
-              <td><%= @truck.price_per_day.to_f/100 %></td>
-              <td><%= @truck.size %></td>
-              <td><%= @truck.description %></td>
-              <td><%= "Photo Placeholder" %></td>
-              <td><%=  link_to 'Book' , new_truck_booking_path(@truck, @bookings) %></td>
-            </tr>
-          </tbody>
-      </table>
-    </div>
+
+<div class="d-flex justify-content-center">
+  <span class="border">
+    <img class="truck-show" src="https://multicorenational.co.uk/wp-content/uploads/2017/12/van-vector.jpg"></span>
+</div>
+<br>
+
+<div class="text-center" >
+  <h1>  <%= @truck.title %> </h1>
+
+
+  <h2> Location : <%= @truck.location %></h2>
+  <h2> Price per Day : <%= @truck.price_per_day.to_f/100 %> € </h2>
+  <h2> Size : <%= @truck.size %></h2>
+  <hr>
+  <h2> Message from the owner : </h2> <p><%= @truck.description %></p>
+</div>
+<br>
+
+<div class="d-flex justify-content-center link">
+     <%=  link_to 'Book' , new_truck_booking_path(@truck, @bookings), class: "btn btn-primary btn-lg w-50" %>
+   </div>
+</div>
+
+
+<br>
+
+
+ <div class="link">
+    <%= link_to "Keep Searching", truck_path, class: "btn btn-success" %>
   </div>
 
-  <%= link_to 'Back to overview', trucks_path %>
-
 </div>
+<br>
+<br>
