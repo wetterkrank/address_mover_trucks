@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('movinghome.jpg') %>');">
   <div class="container text-center">
-    <h1>Welcome to Address Mover Trucks</strong></h1>
-    <p>Moving can be so easy 🙌😎</p>
-    <%= link_to 'Browse trucks', trucks_path, class: "btn btn-flat" %>
+    <h1>Welcome to OurTruck </strong></h1>
+    <p> Sharing is caring. Find or rent a truck from owners around you and keep moving.</p>
+    <%= link_to 'Start Searching', trucks_path, class: "btn btn-flat" %>
   </div>
 </div>
 
@@ -10,12 +10,13 @@
 
   <div class="description-text">
     <p>
-      Address Mover Trucks is a marketplace that connects people who want to rent a truck and vehicle owners.
+     You're moving and you need a truck? OurTruck is the place where you can find vehicles of different brands, sizes and prices per day, offered by people near your location.
     </p>
-    <p>You can check out our country-wide selection of available vehicles and make a reservation in mere minutes.<br>
-    If you own a truck, you can offer it here and make some extra money.</p>
-    
-    <%= link_to 'Browse trucks', trucks_path, class: "mt-3 btn btn-flat" %>
+    <p>Create your account and make a reservation or post your own vehicle up for rent in minutes.<br>
+
+    <div class="link">
+    <%= link_to 'Create my account', new_user_registration_path, class: "mt-3 btn btn-outline-primary" %>
+    </div>
   </div>
 
 </div>
