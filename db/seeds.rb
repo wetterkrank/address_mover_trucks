@@ -44,7 +44,7 @@ truck_array = []
     title: Faker::Vehicle.make_and_model,
     location: ['Berlin - Mitte', 'Berlin - Kreuzberg', 'Berlin - Tiergarten'].sample,
     size: ['Large SUV', 'Pick-Up Truck', 'Small Van', 'Large Van'].sample,
-    price_per_day: rand(25..100),
+    price_per_day: rand(2500..10000),
     description: Faker::Lorem.paragraph(sentence_count: 2),
   )
   truck.user = user
