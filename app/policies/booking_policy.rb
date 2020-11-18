@@ -2,8 +2,18 @@ class BookingPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      # Show the full list of bookings only to admin?
-      scope.all
+      # Must return the "filtered" array of Scope (i.e. Booking) instances
+      if user.admin?
+        scope.all
+      else
+        # You can only see the bookings where you are the customer
+        # OR
+        # The bookings that you are the owner of the offer
+        bookings_user_is_customer = scope.where(user: user)
+        bookings_user_is_owner = scope.joins(:truck).where(trucks: { user: user })
+        # Note: the result is an Array, not AR:Relation:
+        bookings_user_is_customer + bookings_user_is_owner
+      end
     end
   end
 
