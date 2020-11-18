@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @truck = @booking.truck
     authorize @booking
   end
 
@@ -21,6 +22,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @truck = Truck.find(params[:truck_id])
     @booking.user = current_user
+    @booking.status = "Hello"
     @booking.truck = @truck
     if @booking.save
       redirect_to booking_path(@booking)

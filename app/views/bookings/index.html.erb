@@ -1,6 +1,18 @@
-<h1> Index </h1>
-<ul>
+<div class="container mt-5">
+<div class="card">
+<h1> List of all reservations </h1>
+<hr>
   <% @bookings.each do |booking| %>
-    <li><%= booking.status %></li>
+  <p>Name: <%= booking.truck.title %><p>
+  <p>Location: <%= booking.truck.location %><p>
+  <p>Price per day: <%= booking.truck.price_per_day %><p>
+  <p>Size of truck: <%= booking.truck.size %><p>
+  <p>Description: <%= booking.truck.description %><p>
+  <p>Status: <%= booking.status %> <p>
+  <p>Start Date:  <%= booking.start_date %> <p>
+  <p>End Date:  <%= booking.end_date %> <p>
+  <hr>
   <% end %>
-</ul>
+  </div>
+  <%= link_to 'Back' , trucks_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
+</div>
