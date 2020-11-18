@@ -1,15 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_url('movinghome.jpg') %>');">
+  <div class="container text-center">
+    <h1>Welcome to Address Mover Trucks</strong></h1>
+    <p>Moving can be so easy 🙌😎</p>
+    <%= link_to 'Browse trucks', trucks_path, class: "btn btn-flat" %>
+  </div>
+</div>
+
 <div class= "container">
 
-  <h1> Welcome to Address Mover Trucks! </h1>
-  <h2>  Moving can be so easy 🙌😎 </h2>
-
-
-  <br>
-
-  <div class=link>
-    <%= link_to 'Start', trucks_path, class: "btn btn-success" %>
+  <div class="description-text">
+    <p>
+      Address Mover Trucks is a marketplace that connects people who want to rent a truck and vehicle owners.
+    </p>
+    <p>You can check out our country-wide selection of available vehicles and make a reservation in mere minutes.<br>
+    If you own a truck, you can offer it here and make some extra money.</p>
+    
+    <%= link_to 'Browse trucks', trucks_path, class: "mt-3 btn btn-flat" %>
   </div>
-
 
 </div>
 

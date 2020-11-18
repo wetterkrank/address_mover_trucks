@@ -9,36 +9,68 @@
 require 'faker'
 
 puts 'Cleaning database now...'
+Booking.destroy_all
 Truck.destroy_all
 User.destroy_all
 puts 'Database clean ✅'
 
+# Users:
+
 user = User.new
-user.email = 'christoph.harlander@hotmail.com'
+user.email = 'admin@gmail.com' # admin user
+user.password = '123456'
+user.name = "Administator"
+user.admin = true
+user.save!
+
+user_rentee = User.new
+user_rentee.email = 'joe@gmail.com' # user_rentee to rent a truck
+user_rentee.password = '123456'
+user_rentee.name = "Joe Rentee"
+user_rentee.save!
+
+user = User.new
+user.email = 'owner@gmail.com' # user to offer trucks
+user.name = "Anne Owner"
 user.password = '123456'
 user.save!
 
-user = User.new
-user.email = 'hola.harlander@hotmail.com'
-user.password = '123456'
-user.save!
+# Trucks:
 
-user = User.new
-user.email = 'chau.harlander@gmail.com'
-user.password = '123456'
-user.save!
+truck_array = []
 
 10.times do 
   truck = Truck.new(
     title: Faker::Vehicle.make_and_model,
-    location: ['Berlin', 'Hamburg', 'Munich'].sample,
+    location: ['Berlin - Mitte', 'Berlin - Kreuzberg', 'Berlin - Tiergarten'].sample,
     size: ['Large SUV', 'Pick-Up Truck', 'Small Van', 'Large Van'].sample,
-    price_per_day: rand(25..100),
+    price_per_day: rand(2500..10000),
     description: Faker::Lorem.paragraph(sentence_count: 2),
   )
   truck.user = user
   truck.save
+  truck_array << truck
 end
 
-puts "Done! Created #{User.count} users."
+# Bookings:
+
+5.times do
+  random_day = rand(19..30)
+  booking = Booking.new(
+    start_date:  DateTime.new(2020, 11, 18), # Date.parse("18/11/2020")
+    end_date: DateTime.new(2020, 11, random_day),
+    status: ['pending', 'confirmed', 'pending'].sample,
+  )
+  booking.user = user_rentee
+  booking.truck = truck_array.sample
+  booking.save
+  p booking
+end
+
+puts "Done!"
+puts "Created #{User.count} users."
 puts "Created #{Truck.count} trucks."
+puts "Created #{Booking.count} bookings."
+
+
+
