@@ -16,6 +16,7 @@ class TruckPolicy < ApplicationPolicy
   end
 
   def update?
+    # Allow this only to the seller (truck owner) or admin
     user_is_owner? || user_is_admin?
   end
 
