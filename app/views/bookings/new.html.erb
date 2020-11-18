@@ -3,7 +3,7 @@
 <h4><strong> Information about the truck</strong></h4>
 <p>Title: <%=@truck.title %></p>
 <p>Location: <%= @truck.location %></p>
-<p>Price per day: <%= @truck.price_per_day %>
+<p>Price per day:€  <%= @truck.price_per_day.to_f/100 %>
 <p>Size of truck: <%= @truck.size %>
 <p>Descrtiption: <%= @truck.description %>
 <hr>
