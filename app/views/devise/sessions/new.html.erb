@@ -1,6 +1,8 @@
 <div class="container mt-5">
 
-<h2>Log in</h2>
+<h1>Log in</h1>
+<p> <h3> Welcome back!</h3> <p>
+
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -14,10 +16,15 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions btn btn-success">
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
+<br>
 
 <%= render "devise/shared/links" %>
+
+<br>
+<br>
+<%= link_to 'Back to list of trucks', trucks_path %>
 </div>
