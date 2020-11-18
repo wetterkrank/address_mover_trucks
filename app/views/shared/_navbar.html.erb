@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "movinglogo.jpg", alt: "moving", width: 200 %>
-    <% end %>
+    <%= image_tag "movinglogo.png", alt: "moving" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,13 +12,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Search", "#", class: "nav-link" %>
+          <%= link_to "Rent a truck", trucks_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Offer your Truck", "#", class: "nav-link" %>
+          <%= link_to "Offer your Truck", new_truck_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://fixpress.com.au/wp-content/uploads/2019/06/1246f50e9d.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My reservations", "#", class: "dropdown-item" %>
             <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
@@ -29,6 +29,10 @@
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Register", new_user_registration_path, class: "nav-link btn btn-success" %>
+        </li>
+
       <% end %>
     </ul>
   </div>
