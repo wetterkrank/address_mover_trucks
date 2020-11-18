@@ -6,7 +6,7 @@
   <div class="cards">
     <% @trucks.each do |truck| %>
     <div class="card-product">
-      <img src="https://multicorenational.co.uk/wp-content/uploads/2017/12/van-vector.jpg">
+     <img src= <%="http://loremflickr.com/500/500/#{truck.title}" %> />
       <div class="card-product-infos">
         <h2><%= link_to truck.title, truck_path(truck) %></h2>
         <h3><%=  truck.location %> </h3>
