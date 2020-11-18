@@ -1,7 +1,13 @@
 // Specific CSS for your home-page
 
 div.description-text {
+   padding: 40px;
     margin: 40px 0;
     text-align: center;
     font-size: larger;
+}
+
+
+div.description-text p {
+  color: black;
 }
