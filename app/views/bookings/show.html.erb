@@ -1,7 +1,12 @@
-<h1> Show </h1>
-
+<div class="container mt-5">
+<div class="card">
+<h1>Congratulations! You have completed the booking </h1>
+<hr>
 <h2><%= @booking.status %></h2>
 <p><%= @booking.start_date %></p>
 <p><%= @booking.end_date %></p>
 
 <%= link_to 'Edit this booking' , edit_booking_path(@booking) %>
+<%= link_to 'Back' , trucks_path %>
+</div>
+</div>
