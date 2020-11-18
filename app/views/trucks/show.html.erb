@@ -1,38 +1,35 @@
 <div class="container mt-5 justify-content-center">
-<div class="card d-flex justify-content-space-around">
 
+  <div class="card d-flex justify-content-space-around">
 
-<div class="d-flex justify-content-center">
-  <span class="border">
-    <img class="truck-show" src="https://multicorenational.co.uk/wp-content/uploads/2017/12/van-vector.jpg"></span>
-</div>
-<br>
+    <div class="d-flex justify-content-center">
+      <span class="border">
+        <img class="truck-show" src="https://multicorenational.co.uk/wp-content/uploads/2017/12/van-vector.jpg"></span>
+      </div>
 
-<div class="text-center" >
-  <h1>  <%= @truck.title %> </h1>
+      <br>
 
+      <div class="text-center" >
+        <h1>  <%= @truck.title %> </h1>
+        <h2> Location : <%= @truck.location %></h2>
+        <h2> Price per Day : <%= @truck.price_per_day.to_f/100 %> € </h2>
+        <h2> Size : <%= @truck.size %></h2>
+        <hr>
+        <h2> Message from the owner : </h2> <p><%= @truck.description %></p>
+      </div>
+      <br>
 
-  <h2> Location : <%= @truck.location %></h2>
-  <h2> Price per Day : <%= @truck.price_per_day.to_f/100 %> € </h2>
-  <h2> Size : <%= @truck.size %></h2>
-  <hr>
-  <h2> Message from the owner : </h2> <p><%= @truck.description %></p>
-</div>
-<br>
-
-<div class="d-flex justify-content-center link">
-     <%=  link_to 'Book' , new_truck_booking_path(@truck, @bookings), class: "btn btn-primary btn-lg w-50" %>
+      <div class="d-flex justify-content-center link">
+       <%=  link_to 'Book' , new_truck_booking_path(@truck, @bookings), class: "btn btn-primary btn-lg w-50" %>
+     </div>
    </div>
-</div>
 
+   <br>
 
-<br>
-
-
- <div class="link">
-    <%= link_to "Keep Searching", truck_path, class: "btn btn-success" %>
+   <div class="link">
+    <%= link_to "Back to Search", trucks_path, class: "btn btn-success" %>
   </div>
-
 </div>
+
 <br>
 <br>
