@@ -10,7 +10,7 @@
       <div class="card-product-infos">
         <h2><%= link_to truck.title, truck_path(truck) %></h2>
         <h3><%=  truck.location %> </h3>
-        <h3> $xDay : <%= truck.price_per_day.to_f/100 %></h3>
+        <h3> €xDay : <%= truck.price_per_day.to_f/100 %></h3>
         <h3> Size: <%= truck.size %></h3>
       </div>
     </div>

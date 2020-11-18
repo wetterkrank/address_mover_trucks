@@ -1,20 +1,20 @@
 <div class="container">
   <h1> List of all reservations </h1>
   <hr>
-    <% @bookings.each do |booking| %>
-      <div class="card-product">
-        <img src= <%="http://loremflickr.com/280/280/#{booking.truck.title}" %> />
-          <div class="card-product-infos">
-          <p>Name:<strong> <%= booking.truck.title %> </strong><p>
-          <p>Location: <%= booking.truck.location %><p>
-          <p>Price per day: <%= booking.truck.price_per_day %><p>
-          <p>Size of truck: <%= booking.truck.size %><p>
-          <p>Description: <%= booking.truck.description %><p>
-          <p>Status: <%= booking.status %> <p>
-          <p>Start Date:  <%= booking.start_date %> <p>
-          <p>End Date:  <%= booking.end_date %> <p>
-        </div>
+  <% @bookings.each do |booking| %>
+    <div class="card-product">
+      <img src= <%="http://loremflickr.com/280/280/#{booking.truck.title}" %> />
+        <div class="card-product-infos">
+        <p>Name:<strong> <%= booking.truck.title %> </strong><p>
+        <p>Location: <%= booking.truck.location %><p>
+        <p>Price per day: <%= booking.truck.price_per_day %><p>
+        <p>Size of truck: <%= booking.truck.size %><p>
+        <p>Description: <%= booking.truck.description %><p>
+        <p>Status: <%= booking.status %> <p>
+        <p>Start Date:  <%= booking.start_date %> <p>
+        <p>End Date:  <%= booking.end_date %> <p>
       </div>
-    <% end %>
+    </div>
+  <% end %>
   <%= link_to 'Back' , trucks_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
 </div>
