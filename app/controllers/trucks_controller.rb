@@ -15,7 +15,7 @@ class TrucksController < ApplicationController
   def create
     @truck = Truck.new(truck_params)
     @truck.user = current_user
-    
+    @truck.price_per_day = @truck.price_per_day * 100 # change the user input to cents for a correcter calculation
     if @truck.save
       redirect_to @truck, notice: 'Your truck was successfully created'
     else
