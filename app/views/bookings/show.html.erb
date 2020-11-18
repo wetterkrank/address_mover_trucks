@@ -1,6 +1,7 @@
 <div class="container mt-5">
 <div class="card">
 <h1>Congratulations! You have completed the booking </h1>
+<h6> You will get a notification about the status of the booking soon.. </h6>
 <hr>
 
 <h4><strong> Information about the truck</strong></h4>
@@ -8,7 +9,7 @@
 <p>Location: <%= @truck.location %></p>
 <p>Price per day: <%= @truck.price_per_day %>
 <p>Size of truck: <%= @truck.size %>
-<p>Descrtiption: <%= @truck.description %>
+<p>Description: <%= @truck.description %>
 <hr>
 <h4><strong> Information about the booking</strong></h4>
 <p>Start date: <%= @booking.start_date %></p>
@@ -17,4 +18,4 @@
 
 <%= link_to 'Edit this booking' , edit_booking_path(@booking), class: "btn btn-success btn-sm mt-3 mb-3 float-right"%>
 
-<%= link_to 'Back' , trucks_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
+<%= link_to 'See all bookings' , bookings_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
