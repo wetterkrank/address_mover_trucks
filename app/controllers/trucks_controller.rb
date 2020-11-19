@@ -13,6 +13,11 @@ class TrucksController < ApplicationController
         image_url: helpers.asset_url('lorry.png')
       }
     end
+    if params[:search]
+      @trucks = Truck.search_by_truck_attributes(params[:search])
+    else
+      @trucks.all
+    end
   end
 
   def show
@@ -34,7 +39,7 @@ class TrucksController < ApplicationController
     if @truck.save
       redirect_to @truck, notice: 'Your truck was successfully created'
     else
-      render:new
+      render :new
     end
   end
 
