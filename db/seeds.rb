@@ -77,6 +77,7 @@ csv.each do |row|
   t.size = row[:size]
   t.price_per_day = row[:price_per_day]
   t.description = row[:description]
+  t.photo = row[:photo_url]
   t.user = owner_array.sample
   t.save
   truck_array << t
