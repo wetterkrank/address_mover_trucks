@@ -2,7 +2,7 @@
 <div class="container mt-5 py-3 border justify-content-center">
   <div class="d-flex justify-content-between">
     <!--------------- row beginns ---------------------->
-    <div class="row">
+    <div class="row truck-show">
       <!--------------- image col beginns ---------------------->
       <div class="col-md-8">
         <img class="truck-show rounded" src= <%= "http://loremflickr.com/500/400/#{@truck.title}" %> />
@@ -13,16 +13,16 @@
       <div class="col-md-4">
        <div><h3> <i class="fas fa-map-marker-alt"></i> <%= @truck.location %></h3></div>
        <div><h1>  <%= @truck.title %> </h1></div>
-       <div> <span><%= @truck.size %></span></div>
+       <div> <span> Size/Type : <%= @truck.size %></span></div>
        <br>
-       <span style="font-size: 25px"> <strong> € <%= @truck.price_per_day.to_f / 100 %> </strong></span> <span style="font-size:11px">Price per Day</span>
+       <span class="price" style="font-size: 25px"> <strong> € <%= @truck.price_per_day.to_f / 100 %> </strong></span> <span style="font-size:11px">Price per Day</span>
        <hr>
        <div class="d-flex justify-content-center link">
        <!-- underneath comes the button "reserve" that starts the modal-->
         <%= render "trucks/modal_booking" %>
       </div>
       <br>
-      <span> <strong>Message from the owner :</strong> </span>
+      <p> <strong>Message from the owner :</strong> </p>
       <p><%= @truck.description %></p>
     </div>
     <!------------------ info col ends ----------------------->
