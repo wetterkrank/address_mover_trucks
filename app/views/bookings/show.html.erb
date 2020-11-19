@@ -1,39 +1,36 @@
 <div class="container my-5">
-<div class="card d-flex justify-content-center">
+  <div class="card d-flex justify-content-center">
 
-<h1>Congratulations! <i class="fas fa-truck"></i> </h1>
-<p> You just reserved a <strong> <%=@truck.title %></strong>. <br> You will be notified when the owner answers to your <br>booking request!</p> </p>
-<!-- <p> inline photos of the trucks </p>
- -->
- <hr>
+    <h1>Congratulations! <i class="fas fa-truck"></i> </h1>
+    <p> You just reserved a <strong> <%=@truck.title %></strong>. <br> You will be notified when the owner answers to your <br>booking request!
+    </p>
+     <hr>
+     <h4><strong> Details of your Booking : </strong></h4>
+     <hr>
+     <h5>Location : <%= @truck.location %><strong> *</strong> </h5>
+     <hr>
+     <h5>Vehicle : <%=@truck.title %><span> </span></h5>
+     <hr>
+     <h5>From :<strong> <%=@booking.start_date.strftime('%d-%m-%Y') %> </strong> To: <strong> <%= @booking.end_date.strftime('%d-%m-%Y') %></strong></h5>
+     <hr>
+     <h5>Size : <%= @truck.size %></h5>
+     <hr>
+     <h5>Price per day :<span style="font-size: 20px">  € <%= @truck.price_per_day.to_f / 100 %> </span></h5>
+     <hr>
 
-<h4><strong> Details of your Booking : </strong></h4>
-<hr>
-<h5>Location : <%= @truck.location %><strong> *</strong> </h5>
-<hr>
-<h5>Vehicle : <%=@truck.title %><span> </span></h5>
-<hr>
+     <h5> <strong> TOTAL PRICE: <span style="font-size: 25px">  € <%= (@booking.end_date - @booking.start_date).to_i * @truck.price_per_day.to_f/100%> </span></strong></h5>
+    <br>
+    <span> <strong>*</strong>Once your reservation is confirmed by the owner, make sure to communicate and establish the exact pick up/drop off location.</span>
 
-<h5>From :<strong> <%=@booking.start_date.strftime('%d-%m-%Y') %> </strong> To: <strong> <%= @booking.end_date.strftime('%d-%m-%Y') %></strong></h5>
-<hr>
-<h5>Size : <%= @truck.size %></h5>
-<hr>
+  </div>
 
-<h5>Price per day :<span style="font-size: 20px">  € <%= @truck.price_per_day.to_f / 100 %> </span></h5>
-<hr>
+  <%= link_to 'Edit this booking' , edit_booking_path(@booking), class: "btn btn-success btn-sm mt-3 mb-3 float-right"%>
 
-<h5> <strong>TOTAL PRICE :   <span style="font-size: 25px">  € <%= (@booking.end_date - @booking.start_date).to_i * @truck.price_per_day.to_f/100%> </strong></span></h5>
-<br>
-
-
-<span> <strong>*</strong>Once your reservation is confirmed by the owner, make sure to communicate and establish the exact pick up/drop off location.</span>
+  <%= link_to 'See all my bookings' , bookings_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
 
 </div>
 
-<%= link_to 'Edit this booking' , edit_booking_path(@booking), class: "btn btn-success btn-sm mt-3 mb-3 float-right"%>
 
-<%= link_to 'See all my bookings' , bookings_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
-</div>
 <br>
 <br>
 
