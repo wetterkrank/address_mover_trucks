@@ -1,5 +1,5 @@
 class TrucksController < ApplicationController
-  before_action :find_truck, only: [:show, :update, :destroy]
+  before_action :find_truck, only: [:show, :update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
@@ -41,6 +41,10 @@ class TrucksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    authorize @truck
   end
 
   # def destroy
