@@ -5,6 +5,14 @@ class TrucksController < ApplicationController
   def index
     # @trucks = Truck.all
     @trucks = policy_scope(Truck).order(created_at: :desc)
+    @markers = @trucks.geocoded.map do |truck|
+      {
+        lat: truck.latitude,
+        lng: truck.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { truck: truck }),
+        image_url: helpers.asset_url('lorry.png')
+      }
+    end
   end
 
   def show
