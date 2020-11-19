@@ -73,3 +73,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Geocoding
 gem 'geocoder'
+
+# pg search
+gem 'pg_search', '~> 2.3.0'
