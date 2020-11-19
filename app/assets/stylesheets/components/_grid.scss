@@ -1,8 +1,19 @@
+// .content{
+//   display: flex;
+// }
+
 .cards {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 14px;
+  padding: 14px;
 }
+// #map {
+//   height: 100vh;
+//   position: sticky;
+//   top: 0;
+// }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
