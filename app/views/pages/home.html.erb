@@ -8,15 +8,16 @@
 
 <div class= "container middle ">
 
-  <div class="description-text">
+  <div class="description-text mt-5 mb-2">
     <p>
      You're moving and you need a truck? OurTruck is the place where you can find vehicles of different brands, sizes and prices per day, offered by people near your location.
     </p>
     <p>Create your account and make a reservation or post your own vehicle up for rent in minutes.</p>
-    <br>
     <div class="link">
-    <%= link_to 'Create my account', new_user_registration_path, class: "mt-3 btn btn-outline-primary" %>
+      <%= link_to 'Create my account', new_user_registration_path, class: "mt-3 btn btn-outline-primary" %>
     </div>
   </div>
+
+  <%= render "trucks/cards" %>
 
 </div>
