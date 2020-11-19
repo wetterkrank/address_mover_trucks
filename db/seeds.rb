@@ -8,6 +8,7 @@
 
 require 'faker'
 require 'csv'
+require "open-uri"
 
 puts 'Cleaning database now...'
 Booking.destroy_all
@@ -69,7 +70,7 @@ truck_array = []
 csv_text = File.read(Rails.root.join('lib', 'seeds_db', 'our_trucks_seeds.csv'))
 csv = CSV.parse(csv_text, :headers => true, :header_converters => :symbol)
 csv.each do |row|
-  # p row
+  p row
   t = Truck.new
   t.title = row[:title]
   # p row[:title]
@@ -77,11 +78,15 @@ csv.each do |row|
   t.size = row[:size]
   t.price_per_day = row[:price_per_day]
   t.description = row[:description]
-  t.photo = row[:photo_url]
+
+  file = URI.open(row[:photo_url])
+  t.photos.attach(io: file, filename: 'picture')
+ 
   t.user = owner_array.sample
   t.save
   truck_array << t
 end
+
 
 
 # Bookings:
