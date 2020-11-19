@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container dashboard mt-5">
   <h1> Dashboard </h1>
   <hr>
   <% if current_user.admin %>
@@ -9,7 +9,7 @@
           <p>
             <strong><%= booking.truck.title %></strong>, owner: <%= booking.truck.user.email %><br>
             Booked by: <%= booking.user.email %><br>
-            Status: <%= booking.status %> 
+            Status: <%= booking.status %>
           </p>
           <%= link_to "Delete", booking_path(booking), method: "delete", class: "btn btn-sm btn-danger" %>
         </div>
@@ -17,7 +17,7 @@
     <% end %>
   <% else %>
     <div class="d-flex justify-content-between">
-  
+
       <% unless @bookings_as_customer.empty?  %>
         <div class="customer">
           <h3>Your reservations</h3>
@@ -27,7 +27,7 @@
               <div class="card-booking-info">
                 <p>
                   <strong><%= booking.truck.title %></strong>, owned by: <%= booking.truck.user.email %><br>
-                  Status: <%= booking.status %> 
+                  Status: <%= booking.status %>
                 </p>
                 <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
                 <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-success" %>
@@ -36,7 +36,7 @@
           <% end %>
         </div>
       <% end %>
-  
+
       <% unless @bookings_as_owner.empty?  %>
       <div class="owner">
         <h3>Your trucks' reservations</h3>
@@ -46,7 +46,7 @@
               <div class="card-booking-info">
                 <p>
                   <strong><%= booking.truck.title %></strong>, booked by: <%= booking.user.email %><br>
-                  Status: <%= booking.status %> 
+                  Status: <%= booking.status %>
                 </p>
                 <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
                 <%= link_to "Confirm", edit_booking_path(booking), class: "btn btn-sm btn-success" %>
