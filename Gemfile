@@ -64,9 +64,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-# Added devise
+# Added Devise and Pundit
 gem 'devise'
 gem 'pundit'
 
 # Added Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+# Geocoding
+gem 'geocoder'
