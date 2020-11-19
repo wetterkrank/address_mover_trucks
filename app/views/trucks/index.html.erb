@@ -7,6 +7,10 @@
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
+    <form action="/trucks" method="GET">
+      <input type="text" name="size" >
+      <input type="submit" value="Search for the size">
+    </form>
 
   <div class="cards">
     <% @trucks.each do |truck| %>
@@ -27,7 +31,6 @@
   <div class="link">
     <%= link_to 'Offer your truck', new_truck_path, class: "btn btn-success" %>
   </div>
-</div>
   <br>
   <br>
   <br>

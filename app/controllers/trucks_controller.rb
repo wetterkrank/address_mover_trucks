@@ -13,6 +13,11 @@ class TrucksController < ApplicationController
         image_url: helpers.asset_url('lorry.png')
       }
     end
+      if params[:size]
+        @trucks = @trucks.where(size: params[:size])
+      else 
+        @trucks.all
+    end
   end
   
   def show
