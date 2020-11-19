@@ -7,10 +7,10 @@
     <p>Truck size: <%= @truck.size %>
     <p>Description: <%= @truck.description %>
     <hr>
-    <h4><strong>When do you want to reserve it? </strong></h4>
+    <h4><strong>Pick the dates : </strong></h4>
     <%= simple_form_for [ @truck, @booking ] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= f.input :start_date, as: :date, html5: true%>
+      <%= f.input :end_date, as: :date, html5: true  %>
       <%= f.submit "Submit", class: "btn btn-success" %>
     <% end %>
   </div>

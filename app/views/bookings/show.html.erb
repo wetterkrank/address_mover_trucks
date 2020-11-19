@@ -1,21 +1,39 @@
-<div class="container mt-5">
-<div class="card">
-<h1>Congratulations! You have completed the booking </h1>
-<h6> You will get a notification about the status of the booking soon.. </h6>
+<div class="container my-5">
+<div class="card d-flex justify-content-center">
+
+<h1>Congratulations! <i class="fas fa-truck"></i> </h1>
+<p> You just reserved a <strong> <%=@truck.title %></strong>. <br> You will be notified when the owner answers to your <br>booking request!</p> </p>
+<p> inline photos of the trucks </p>
 <hr>
 
-<h4><strong> Information about the truck</strong></h4>
-<p>Title: <%=@truck.title %></p>
-<p>Location: <%= @truck.location %></p>
-<p>Price per day:€ <%= @truck.price_per_day.to_f/100 %>
-<p>Size of truck: <%= @truck.size %>
-<p>Description: <%= @truck.description %>
+<h4><strong> Details of your Booking : </strong></h4>
 <hr>
-<h4><strong> Information about the booking</strong></h4>
-<p>Start date: <%= @booking.start_date %></p>
-<p>End date: <%= @booking.end_date %></p>
+<h5>Location : <%= @truck.location %><strong> *</strong> </h5>
+<hr>
+<h5>Vehicle : <%=@truck.title %><span> </span></h5>
+<hr>
+
+<h5>From :<strong> <%=@booking.start_date.strftime('%d-%m-%Y') %> </strong> To: <strong> <%= @booking.end_date.strftime('%d-%m-%Y') %></strong></h5>
+<hr>
+<h5>Size : <%= @truck.size %></h5>
+<hr>
+
+<h5>Price per day :<span style="font-size: 20px">  € <%= @truck.price_per_day.to_f / 100 %> </span></h5>
+<hr>
+
+<h5> <strong>TOTAL PRICE :   <span style="font-size: 25px">  € <%= (@booking.end_date - @booking.start_date).to_i * @truck.price_per_day.to_f/100%> </strong></span></h5>
+<br>
+
+
+<span> <strong>*</strong>Once your reservation is confirmed by the owner, make sure to communicate and establish the exact pick up/drop off location.</span>
+
 </div>
 
 <%= link_to 'Edit this booking' , edit_booking_path(@booking), class: "btn btn-success btn-sm mt-3 mb-3 float-right"%>
 
-<%= link_to 'See all bookings' , bookings_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
+<%= link_to 'See all my bookings' , bookings_path,class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
+</div>
+<br>
+<br>
+
+

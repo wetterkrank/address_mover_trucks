@@ -1,12 +1,18 @@
 <div class="container mt-5">
-<div class="card">
-<h1> Edit </h1>
+<div class="card ">
+<h1> Edit your Booking </h1>
 <hr>
 <%= simple_form_for [ @truck, @booking ] do |f| %>
-  <%= f.input :status %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Submit", class: "btn btn-success" %>
+
+   <%= f.input :status %>
+
+
+  <%= f.input :start_date, as: :date, html5: true%>
+  <%= f.input :end_date, as: :date, html5: true  %>
+
+  <span> Total Days : <strong> <%= (@booking.end_date - @booking.start_date).to_i %></strong></span>
+  <%= f.submit "Update", class: "btn btn-lg btn-success" %>
 <% end %>
 </div>
 </div>
+<br>
