@@ -1,12 +1,12 @@
 <div class="container mt-5">
-<div class="card">
-<h1> Edit </h1>
-<hr>
-<%= simple_form_for [ @truck, @booking ] do |f| %>
-  <%= f.input :status %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Submit", class: "btn btn-success" %>
-<% end %>
-</div>
+  <div class="card">
+    <h1> Edit </h1>
+    <hr>
+    <%= simple_form_for [ @truck, @booking ] do |f| %>
+      <%= f.input :status %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>
