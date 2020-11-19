@@ -6,9 +6,10 @@ class TrucksController < ApplicationController
     # @trucks = Truck.all
     @trucks = policy_scope(Truck).order(created_at: :desc)
   end
-  
+
   def show
     authorize @truck
+    @booking = Booking.new
   end
 
   def new

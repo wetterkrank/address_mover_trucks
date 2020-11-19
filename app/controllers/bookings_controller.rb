@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking.status = "pending"
     authorize @booking
   end
 
