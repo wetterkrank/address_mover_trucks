@@ -1,9 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:show, :edit, :update]
+  before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @bookings = Booking.all
-    @bookings = policy_scope(Booking) # Note: can't do .order(created_at: :desc)
+    @bookings = policy_scope(Booking)
+    @bookings_as_customer = @bookings.filter { |booking| booking.user == current_user }
+    @bookings_as_owner = @bookings.filter { |booking| booking.truck.user == current_user }
   end
 
   def show
@@ -37,6 +38,12 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.update(booking_params)
     redirect_to booking_path(@booking.id)
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private

@@ -3,12 +3,11 @@ class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       # Must return the "filtered" array of Scope (i.e. Booking) instances
-      if user.admin?
+      if user.admin
         scope.all
       else
         # You can only see the bookings where you are the customer
-        # OR
-        # The bookings that you are the owner of the offer
+        # OR the bookings that you are the owner of the offer
         bookings_user_is_customer = scope.where(user: user)
         bookings_user_is_owner = scope.joins(:truck).where(trucks: { user: user })
         # Note: the result is an Array, not AR:Relation:
