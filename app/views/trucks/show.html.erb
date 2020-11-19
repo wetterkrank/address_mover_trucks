@@ -23,7 +23,7 @@
 
      <div class="d-flex justify-content-center link">
       <% unless current_user == @truck.user %>
-      <%= link_to 'Book' , new_truck_booking_path(@truck, @bookings), class: "btn btn-primary btn-lg btn-block" %>
+      <%= link_to 'Book' , new_truck_booking_path(@truck, @bookings), class: "btn btn-success btn-lg btn-block" %>
       <% end %>
     </div>
     <br>
@@ -39,5 +39,5 @@
 
 </div>
 <div class="container mt-3 link">
-  <%= link_to "Back to Search", trucks_path, class: "btn btn-success" %>
+  <%= link_to "Back to Search", trucks_path, class: "btn btn-outline-primary" %>
 </div>
