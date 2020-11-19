@@ -69,7 +69,7 @@ class BookingsController < ApplicationController
   end
 
   def sort_by_created(collection)
-    collection.sort { |a,b| a.created_at <=> b.created_at }
+    collection.sort_by { |boo| boo.created_at }.reverse
   end
 
   def finalized?(booking)
