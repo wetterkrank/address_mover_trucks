@@ -7,12 +7,11 @@
         <div class="card-product-infos">
         <p>Vehicle Name :<strong> <%= booking.truck.title %> </strong><p>
         <p>Location : <%= booking.truck.location %><p>
-        <p>Price per day : <%= booking.truck.price_per_day %><p>
+        <p>Price p/day : €<%= booking.truck.price_per_day.to_f/100 %><p>
         <p>Size : <%= booking.truck.size %><p>
         <p>Description : <%= booking.truck.description %><p>
-        <p>Status : <%= booking.status %> <p>
-        <p>Start Date :  <%= booking.start_date.strftime('%d-%m-%Y') %> <p>
-        <p>End Date :  <%= booking.end_date.strftime('%d-%m-%Y') %> <p>
+        <p>From : <%= booking.start_date.strftime('%d-%m-%Y') %> / To : <%= booking.end_date.strftime('%d-%m-%Y') %><p>
+        <p>Status :<strong> <%= booking.status %></strong> <p>
       </div>
     </div>
   <% end %>
