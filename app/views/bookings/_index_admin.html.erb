@@ -1,0 +1,15 @@
+<% @bookings.each do |booking| %>
+  <div class="card-booking">
+    <%= image_tag "van-placeholder.jpg" %>
+    <div class="card-booking-info">
+      <p>
+        <strong><%= booking.truck.title %></strong>, status: <%= booking.status %><br>
+        Owner: <%= booking.truck.user.email %>, booked by: <%= booking.user.email %>
+      </p>
+      <%= link_to "Delete", booking_path(booking), method: "delete", class: "btn btn-sm btn-danger" %>
+    </div>
+  </div>
+<% end %>
+  
+  
+  

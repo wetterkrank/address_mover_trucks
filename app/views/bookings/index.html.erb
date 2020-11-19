@@ -2,19 +2,7 @@
   <h1> Dashboard </h1>
   <hr>
   <% if current_user.admin %>
-    <% @bookings.each do |booking| %>
-      <div class="card-booking">
-        <%= image_tag "van-placeholder.jpg" %>
-        <div class="card-booking-info">
-          <p>
-            <strong><%= booking.truck.title %></strong>, owner: <%= booking.truck.user.email %><br>
-            Booked by: <%= booking.user.email %><br>
-            Status: <%= booking.status %> 
-          </p>
-          <%= link_to "Delete", booking_path(booking), method: "delete", class: "btn btn-sm btn-danger" %>
-        </div>
-      </div>
-    <% end %>
+    <%= render "index_admin" %>
   <% else %>
     <div class="d-flex justify-content-between">
   
@@ -30,7 +18,8 @@
                   Status: <%= booking.status %> 
                 </p>
                 <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
-                <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-success" %>
+                <% disabled = finalized?(booking) ? "disabled" : ""%>
+                <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-success #{disabled}" %>
               </div>
             </div>
           <% end %>
@@ -49,8 +38,14 @@
                   Status: <%= booking.status %> 
                 </p>
                 <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
-                <%= link_to "Confirm", edit_booking_path(booking), class: "btn btn-sm btn-success" %>
-                <%= link_to "Cancel", edit_booking_path(booking), class: "btn btn-sm btn-warning" %>
+                <%= simple_form_for booking, html: { class: "booking-button-inline form-inline" } do |f|%>
+                  <%= f.input :status, input_html: { value: "confirmed" }, as: :hidden %>
+                  <%= f.button :submit, "Confirm", disabled: finalized?(booking), class: "btn btn-sm btn-success" %>
+                <% end %>
+                <%= simple_form_for booking, html: { class: "booking-button-inline" } do |f|%>
+                  <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
+                  <%= f.button :submit, "Decline", disabled: finalized?(booking), class: "btn btn-sm btn-warning" %>
+                <% end %>
               </div>
           </div>
         <% end %>
