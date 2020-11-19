@@ -1,14 +1,19 @@
 <div class="container mt-5">
-  <div class="card ">
+  <div class="card book-edit">
     <h1> Edit your Booking </h1>
     <hr>
     <h3> Update the dates:</h3>
+    <br>
     <%= simple_form_for [ @truck, @booking ] do |f| %>
       <%= f.input :start_date, as: :date, html5: true%>
       <%= f.input :end_date, as: :date, html5: true  %>
+      <br>
       <%= f.submit "Update", class: "btn btn-lg btn-success" %>
     <% end %>
   </div>
   <br>
   <%= link_to 'Cancel and go back' , booking_path(@booking), class: "btn btn-secondary btn-sm mt-3 mb-3 float-left" %>
 </div>
+<br>
+<br>
+
