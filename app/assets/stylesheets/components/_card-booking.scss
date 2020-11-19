@@ -1,11 +1,4 @@
-.card{
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    padding: 100px;
-}
-
-.card-product{
+.card-booking{
     overflow: hidden;
     height: 120px;
     background: white;
@@ -15,12 +8,12 @@
     margin-top: 35px;
 }
 
-.card-product img {
+.card-booking img {
     height: 100%;
     width: 120px;
     object-fit: cover;
-}
+  }
 
-.card-product .card-product-info {
+.card-booking .card-booking-info {
   padding: 30px;
 }
