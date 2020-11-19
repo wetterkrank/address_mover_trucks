@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking.status = "pending"
     authorize @booking
   end
 
@@ -55,5 +56,5 @@ class BookingsController < ApplicationController
   def find_booking
     @booking = Booking.find(params[:id])
   end
-  
+
 end

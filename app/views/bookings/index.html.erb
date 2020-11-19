@@ -1,7 +1,6 @@
 <div class="container mt-5">
   <h1> Dashboard </h1>
   <hr>
-
   <% if current_user.admin %>
     <% @bookings.each do |booking| %>
       <div class="card-booking">
@@ -59,6 +58,5 @@
       <% end %>
     </div>
   <% end %>
-
   <%= link_to 'Back' , trucks_path,class: "btn btn-outline-primary my-3" %>
 </div>

@@ -14,9 +14,10 @@ class TrucksController < ApplicationController
       }
     end
   end
-  
+
   def show
     authorize @truck
+    @booking = Booking.new
   end
 
   def new

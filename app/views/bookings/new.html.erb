@@ -1,18 +1,26 @@
 <div class="container mt-5">
   <div class="card">
+    <div class="truck-info">
     <h4><strong> Information about the truck</strong></h4>
     <p>Title: <%= @truck.title %></p>
     <p>Location: <%= @truck.location %></p>
-    <p>Price per day: € <%= @truck.price_per_day.to_f/100 %>
-    <p>Truck size: <%= @truck.size %>
-    <p>Description: <%= @truck.description %>
+    <p>Price per day: € <%= @truck.price_per_day.to_f/100 %></p>
+    <p>Truck size: <%= @truck.size %></p>
+    <p>Description: <%= @truck.description %></p>
+  </div>
+  <div class="payment">
+
+
+  </div>
     <hr>
-    <h4><strong>When do you want to reserve it? </strong></h4>
+    <div class="nothing should be here">
+    <h4><strong>Pick the dates : </strong></h4>
     <%= simple_form_for [ @truck, @booking ] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= f.input :start_date, as: :date, html5: true%>
+      <%= f.input :end_date, as: :date, html5: true  %>
       <%= f.submit "Submit", class: "btn btn-success" %>
     <% end %>
+  </div>
   </div>
 </div>
 
