@@ -9,6 +9,7 @@ class TrucksController < ApplicationController
       {
         lat: truck.latitude,
         lng: truck.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { truck: truck }),
         image_url: helpers.asset_url('lorry.png')
       }
     end
