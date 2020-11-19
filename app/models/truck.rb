@@ -1,8 +1,8 @@
 class Truck < ApplicationRecord
-belongs_to :user
-has_many :users, through: :bookings
-has_many :bookings
-has_many_attached :photos
+  belongs_to :user
+  has_many :users, through: :bookings
+  has_many :bookings
+  has_many_attached :photos
 
   validates :title, presence: true
   validates :title, length: { in: 5..100 }
@@ -11,6 +11,15 @@ has_many_attached :photos
   validates :size, presence: true
   validates :description, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_truck_attributes,
+    against: [:title, :size, :location, :price_per_day],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+
 end
