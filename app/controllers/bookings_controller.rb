@@ -27,6 +27,8 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     if @booking.save
       redirect_to booking_path(@booking)
+    else
+      render :new
     end
   end
 
@@ -37,8 +39,11 @@ class BookingsController < ApplicationController
 
   def update
     authorize @booking
-    @booking.update(booking_params)
-    redirect_to booking_path(@booking.id)
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -56,5 +61,4 @@ class BookingsController < ApplicationController
   def find_booking
     @booking = Booking.find(params[:id])
   end
-
 end

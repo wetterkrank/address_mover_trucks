@@ -6,23 +6,22 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
     </div>
-    
+
     <div>
       <%= form_tag trucks_path, method: :get do %>
         <%= text_field_tag :search,
             params[:search],
             class: "form-control",
-            placeholder: "Search by brand, type, price or location" 
+            placeholder: "Search by brand, type, price or location"
          %>
         <br>
         <%= submit_tag "Search", class: "btn btn-lg btn-success" %>
       <% end %>
     </div>
-    
+
     <div class="cards">
       <% @trucks.each do |truck| %>
       <div class="card-product">
-       <%= cl_image_tag truck.photos.first.key, class: "card-img" %>
        <div class="card-product-infos">
         <h2><%= link_to truck.title, truck_path(truck) %></h2>
         <hr>

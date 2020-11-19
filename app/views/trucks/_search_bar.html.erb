@@ -1,0 +1,9 @@
+<%= form_tag trucks_path, method: :get do %>
+        <%= text_field_tag :search,
+            params[:search],
+            class: "form-control",
+            placeholder: "Search by brand, type, price or location"
+         %>
+        <br>
+        <%= submit_tag "Search", class: "btn btn-lg btn-success" %>
+      <% end %>
