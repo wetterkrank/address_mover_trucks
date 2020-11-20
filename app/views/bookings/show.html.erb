@@ -15,10 +15,10 @@
      <hr>
      <h5>Size : <%= @truck.size %></h5>
      <hr>
-     <h5>Price per day :<span style="font-size: 20px">  € <%= @truck.price_per_day.to_f / 100 %> </span></h5>
+     <h5>Price per day :<span class="price" style="font-size: 20px">  € <%= @truck.price_per_day.to_f / 100 %> </span></h5>
      <hr>
 
-     <h5> <strong> TOTAL PRICE: <span style="font-size: 25px">  € <%= (@booking.end_date - @booking.start_date).to_i * @truck.price_per_day.to_f/100%> </span></strong></h5>
+     <h5> <strong> TOTAL PRICE: <span class="price" style="font-size: 25px">  € <%= (@booking.end_date - @booking.start_date).to_i * @truck.price_per_day.to_f/100%> </span></strong></h5>
     <br>
     <span> <strong>*</strong>Once your reservation is confirmed by the owner, make sure to communicate and establish the exact pick up/drop off location.</span>
 
