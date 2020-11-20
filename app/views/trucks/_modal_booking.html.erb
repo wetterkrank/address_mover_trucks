@@ -1,13 +1,13 @@
   <!-- Button trigger modal -->
   <% unless current_user == @truck.user %>
-  <%= link_to "Book", new_truck_booking_path(@truck, @bookings), class: "btn btn-success btn-lg btn-block", data: { toggle: "modal", target: "#exampleModal" } %>
+  <%= link_to "Pick the dates ", new_truck_booking_path(@truck, @bookings), class: "btn btn-success btn-lg btn-block", data: { toggle: "modal", target: "#exampleModal" } %>
   <% end %>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Choose the  dates to book :</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Choose the  dates to make a reservation :</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
