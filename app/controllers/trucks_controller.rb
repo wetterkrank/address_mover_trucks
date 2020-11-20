@@ -19,7 +19,7 @@ class TrucksController < ApplicationController
 
     # If index was called with the search parameters
     # this must happen before creating the markers; also, we have a security issue here
-    if params[:search]
+    if params[:search].present?
       @trucks = Truck.search_by_truck_attributes(params[:search])
     else
       @trucks.all
