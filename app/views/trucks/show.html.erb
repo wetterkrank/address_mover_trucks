@@ -1,17 +1,19 @@
 
-<div class="container mt-5 py-3 border justify-content-center">
-  <div class="d-flex justify-content-between">
-    <div class="row">
 
-      <div class="col-md-8">
-          <% if @truck.photos.attached? %>
-              <%= render 'carousel' %>
-            <% else %>
-              <%= image_tag "van-placeholder.jpg" %>
+<div class="container mt-5 py-3 border justify-content-center show-card">
+  <div>
+ 
+    <div class="row justify-content-between">
+
+      <div class="col-md-6">
+        <% if @truck.photos.attached? %>
+          <%= render 'carousel' %>
+        <% else %>
+          <%= image_tag "van-placeholder.jpg" %>
         <% end %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-6 mt-3 py-3">
         <div><h3> <i class="fas fa-map-marker-alt"></i> <%= @truck.location %></h3></div>
         <div><h1>  <%= @truck.title %> </h1></div>
         <div> <span><%= @truck.size %></span></div>
@@ -44,13 +46,14 @@
             </div>
           </div>
           <br>
-        <span> <strong>Message from the owner :</strong> </span>
+        <span> <strong>Description of the vehicle:</strong> </span>
         <p><%= @truck.description %></p>
       </div>
     </div>
+    
   </div>
 </div>
 
-<div class="container mt-3 link">
+<div class="container mt-3 pl-0 link">
   <%= link_to "Back to Search", trucks_path, class: "btn btn-outline-primary" %>
 </div>
