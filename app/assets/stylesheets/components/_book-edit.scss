@@ -1,0 +1,22 @@
+.book-edit {
+  padding: 40px;
+  background: FFFFFF;
+  box-shadow: 3px -1px 8px #00000040;
+
+  }
+
+.book-edit {
+  flex-grow: 1;
+  display: grid;
+  position: center;
+
+  }
+
+.book-edit h1, label {
+  color: #293575;
+}
+
+
+.book-edit h3 {
+  color: gray;
+}
