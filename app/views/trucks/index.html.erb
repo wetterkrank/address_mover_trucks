@@ -22,6 +22,7 @@
     <div class="cards">
       <% @trucks.each do |truck| %>
       <div class="card-product">
+       <%= cl_image_tag truck.photos.first.key, class: "card-img" %>
        <div class="card-product-infos">
         <h2><%= link_to truck.title, truck_path(truck) %></h2>
         <hr>
