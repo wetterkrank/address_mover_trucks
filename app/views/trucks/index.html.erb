@@ -1,17 +1,29 @@
-<div class="container mt-5">
-  
-  <h2>Check out the trucks up for rent around you!</h2>
-  
-  <%= render "trucks/map" %>
-  
-  <div>
-    <%= render "trucks/search_bar" %>
+<div class="container-fluid mt-5">
+  <div class ="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <div>
+        <div class=" dashboard ml-3">
+         <h2>Check out the trucks up for rent around you!</h2>
+         <%= render "trucks/search_bar" %>
+        </div>
+        <div class="dashboard ml-3 mt-3">
+          <h6>
+             <%= pluralize @trucks.count, "match" %> to your search
+          </h6>
+        </div>
+        <%= render "cards" %>
+      </div>
+      <div class="link mt-3 ml-3">
+         <%= link_to "Back", root_path, class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="map-div mt-5">
+        <%= render "trucks/map" %>
+        <div class="link mt-3">
+           <%= link_to "Offer your truck", new_truck_path, class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <%= render "cards" %>
-
-  <div class="link">
-    <%= link_to "Offer your truck", new_truck_path, class: "btn btn-success" %>
-  </div>
-
 </div>

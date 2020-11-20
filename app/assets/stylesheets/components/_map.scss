@@ -1,8 +1,31 @@
 .mapboxgl-popup {
     max-width: 200px;
   }
-  
+
   .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
   }
+
+
+.map-div {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    right: 0;
+
+  }
+
+
+
+
+// /*Small devices (landscape phones, 576px and up)*/
+
+
+// /*Medium devices (tablets, 768px and up)*/
+// @media (min-width: 1200px) {
+
+//   #map {
+//     display: block;
+//   }
+// }
