@@ -6,7 +6,7 @@
     <%= f.input :title, label: "Brand or model", placeholder: "e.g.: Nissan Pickup" %>
     <%= f.input :location,placeholder: "e.g. Rudi-Dutschke-Straße, Berlin " %>
     <%= f.input :price_per_day, label: "Price per day in €" %>
-    <%= f.input :size, label: "Size or type", placeholder: "e.g.: Four seats" %>
+    <%= f.input :size, label: "Size", as: :select, collection: Truck::SIZE %>
     <%= f.input :description, label: "Short description" , placeholder: "Is there something special about your truck you'd like to share?" %>
   </div>
 
