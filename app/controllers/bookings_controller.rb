@@ -27,6 +27,8 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     if @booking.save
       redirect_to booking_path(@booking)
+    else
+      render "trucks/show"
     end
   end
 

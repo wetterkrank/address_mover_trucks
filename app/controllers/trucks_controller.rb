@@ -2,28 +2,15 @@ class TrucksController < ApplicationController
   before_action :find_truck, only: [:show, :update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
-  # TODO: This method is getting too long, refactor
   def index
-    # Get the list of trucks filtered by the access policy
-    @trucks = policy_scope(Truck).order(created_at: :desc)
+    skip_policy_scope
 
-    # Prepare the markers for the map
-    @markers = @trucks.geocoded.map do |truck|
-      {
-        lat: truck.latitude,
-        lng: truck.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { truck: truck }),
-        image_url: helpers.asset_url('lorry.png')
-      }
-    end
-
-    # If index was called with the search parameters
-    # this must happen before creating the markers; also, we have a security issue here
-    if params[:search]
+    if params[:search].present?
       @trucks = Truck.search_by_truck_attributes(params[:search])
     else
-      @trucks.all
+      @trucks = Truck.order(created_at: :desc)
     end
+    @markers = geocode(@trucks)
   end
 
   def show
@@ -58,12 +45,28 @@ class TrucksController < ApplicationController
 
   private
 
+  # Returns markers for the map
+  def geocode(trucks)
+    return trucks.geocoded.map do |truck|
+      {
+        lat: truck.latitude,
+        lng: truck.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { truck: truck }),
+        image_url: helpers.asset_url('pickup-truck.svg')
+      }
+    end
+  end
+
   def find_truck
     @truck = Truck.find(params[:id])
   end
 
   def truck_params
     params.require(:truck).permit(:title, :location, :price_per_day, :size, :description, photos: [])
+  end
+
+  def sort_by_created(collection)
+    collection.sort_by { |smth| smth.created_at }.reverse
   end
 
 end
