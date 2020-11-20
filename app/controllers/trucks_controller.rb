@@ -65,5 +65,4 @@ class TrucksController < ApplicationController
   def truck_params
     params.require(:truck).permit(:title, :location, :price_per_day, :size, :description, photos: [])
   end
-
 end
