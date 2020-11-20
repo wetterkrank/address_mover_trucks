@@ -16,14 +16,15 @@
           <%= image_tag "van-placeholder.jpg" %>
         <% end %>
           
-        <div class="card-product-info">
-          <h2><%= link_to truck.title, truck_path(truck) %></h2>
-          <hr>
-          <h3><strong><%= truck.location %> </strong></h3>
-          <h3> €xDay : <%= truck.price_per_day.to_f / 100 %></h3>
-          <h3> Size: <%= truck.size %></h3>
-        </div>
-
+        <%= link_to truck_path(truck) do %>
+          <div class="card-product-info">
+            <h2><%= truck.title %></h2>
+            <hr>
+            <h3><strong><%= truck.location %> </strong></h3>
+            <h3> €xDay : <%= truck.price_per_day.to_f / 100 %></h3>
+            <h3> Size: <%= truck.size %></h3>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>
