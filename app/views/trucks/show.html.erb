@@ -2,20 +2,26 @@
 <div class="container mt-5 py-3 border justify-content-center">
   <div class="d-flex justify-content-between">
     <div class="row">
+
       <div class="col-md-8">
-         <%= cl_image_tag @truck.photos.first.key, class: "truck-image" %>
+          <% if @truck.photos.attached? %>
+              <%= render 'carousel' %>
+            <% else %>
+              <%= image_tag "van-placeholder.jpg" %>
+        <% end %>
       </div>
+
       <div class="col-md-4">
         <div><h3> <i class="fas fa-map-marker-alt"></i> <%= @truck.location %></h3></div>
         <div><h1>  <%= @truck.title %> </h1></div>
         <div> <span><%= @truck.size %></span></div>
         <br>
         <span style="font-size: 25px"> <strong> € <%= @truck.price_per_day.to_f / 100 %> </strong></span> <span style="font-size:11px">Price per Day</span>
-        <hr>
+          <hr>
           <div class="d-flex justify-content-center link">
             <!-- Button trigger modal -->
             <% unless current_user == @truck.user %>
-            <%= link_to "Book", new_truck_booking_path(@truck, @bookings), class: "btn btn-success btn-lg btn-block", data: { toggle: "modal", target: "#exampleModal" } %>
+              <%= link_to "Book", new_truck_booking_path(@truck, @bookings), class: "btn btn-success btn-lg btn-block", data: { toggle: "modal", target: "#exampleModal" } %>
             <% end %>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -43,32 +49,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="container mt-5 py-3 border justify-content-center">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <%= cl_image_tag @truck.photos.last.key, class:"d-block w-100" %>
-        </div>
-
-        <% @truck.photos.each do |photo| %>
-          <div class="carousel-item">
-              <%= cl_image_tag photo.key, class:"d-block w-100" %>
-          </div>
-        <% end %>
-
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
 </div>
 
 <div class="container mt-3 link">
