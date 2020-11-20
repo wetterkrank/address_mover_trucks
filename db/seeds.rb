@@ -30,40 +30,24 @@ user.save!
 user_rentee = User.new
 user_rentee.email = 'joe@gmail.com' # user_rentee to rent a truck
 user_rentee.password = '123456'
-user_rentee.name = "Joe Rentee"
+user_rentee.name = "Kim Kardashian"
 user_rentee.save!
 
 user_owner1 = User.new
-user_owner1.email = 'owner1@gmail.com' # user_owner1 to offer trucks
+user_owner1.email = 'anne.owner@gmail.com' # user_owner1 to offer trucks
 user_owner1.name = "Anne Owner"
 user_owner1.password = '123456'
 user_owner1.save!
 owner_array << user_owner1
 
 user_owner2 = User.new
-user_owner2.email = 'owner2@gmail.com' # user_owner2 to offer trucks
+user_owner2.email = 'anne.owner2@gmail.com' # user_owner2 to offer trucks
 user_owner2.name = "Anne Other Owner"
 user_owner2.password = '123456'
 user_owner2.save!
 owner_array << user_owner2
 
 # Trucks:
-
-# truck_array = []
-
-# 10.times do 
-#   truck = Truck.new(
-#     title: Faker::Vehicle.make_and_model,
-#     location: ['Berlin - Mitte', 'Berlin - Kreuzberg', 'Berlin - Tiergarten'].sample,
-#     size: ['Large SUV', 'Pick-Up Truck', 'Small Van', 'Large Van'].sample,
-#     price_per_day: rand(2500..10000),
-#     description: Faker::Lorem.paragraph(sentence_count: 2),
-#   )
-#   truck.user = user
-#   truck.save
-#   truck_array << truck
-# end
-
 
 truck_array = []
 

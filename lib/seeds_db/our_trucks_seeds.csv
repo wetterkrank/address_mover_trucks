@@ -1,11 +1,28 @@
 ﻿title,location,size,price_per_day,description,photo_url
-Nissan NV300,Parchimer Allee 12359 Berlin,Large Van,3500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787323/OurTrucks/truck_7_toqagq.jpg
-Peugeot Partner,Karl-Marx-Straße 12043 Berlin,Large Van,4000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787313/OurTrucks/truck_2_mxrhpb.jpg
-Peugeot Expert,Emser Straße 12051 Berlin,Small Van,4500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787315/OurTrucks/truck_16_kwaafs.jpg
-Volkswagen Crafter,Oberspreestraße 12555 Berlin,Large Van,5000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787309/OurTrucks/truck_4_phqa2x.jpg
-Volkswagen LT,Koppenstraße 10243 Berlin,Large Van,5500,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_3_ffbjkl.jpg
-Volkswagen Caddy,Uranusstraße 12524 Berlin,Small Van,6000,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787308/OurTrucks/truck_8_kv58wv.jpg
-Renault Master,Rudower Straße 12439 Berlin,Large Van,6500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_6_whjlv6.jpg
-Renault Trafic,Königin-Luise-Straße 14195 Berlin,Large Van,7000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787313/OurTrucks/truck_14_pxj9yz.jpg
-Renault Kangoo,Kaiserin-Augusta-Straße 12103 Berlin,Small Van,7500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_5_sba24s.jpg
-Opel Vivaro,Ahrensfelder Chaussee 13057 Berlin,Large Van,8000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787308/OurTrucks/truck_9_x5hecz.jpg
+Volkswagen Caddy,Altonaer Straße 10555 Berlin,Small Van,6000,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_5_sba24s.jpg
+Renault Trafic,Blissestraße 10713 Berlin,Large,7000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605882096/OurTrucks/Renault_Trafic_weiyb7.webp
+Nissan NV300,Böttgerstraße 13357 Berlin,Large,3500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605880701/OurTrucks/Nissan_NV300_myz1ei.jpg
+Peugeot Partner,Drakestraße 12205 Berlin,Large,4000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/peugeot-partner_pi4zs8.jpg
+Peugeot Partner,Dreilindenstraße 14109 Berlin,Medium,4000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/peugeot-partner_pi4zs8.jpg
+Opel Vivaro,Ellernweg 12487 Berlin,Medium,8000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881792/OurTrucks/Opel_Vivaro_r6nznx.jpg
+Mercedes Van Large,Emser Straße 12051 Berlin,Large,4500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787315/OurTrucks/truck_16_kwaafs.jpg
+Renault Master,Galen­straße 13597 Berlin,Small Van,6500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605882174/OurTrucks/renault_master_l8nlqz.png
+Nissan NV300,Gasteiner Straße 10717 Berlin,Large,3500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605880701/OurTrucks/Nissan_NV300_myz1ei.jpg
+Opel Vivaro,Görschstraße 13187 Berlin,Large,8000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787308/OurTrucks/truck_9_x5hecz.jpg
+Volkswagen LT,Heesestraße 12169 Berlin,Large,5500,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/Volkswagen_LT_mg2ruu.jpg
+Renault Kangoo,Jungfernheideweg 13629 Berlin,Small Van,7500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_5_sba24s.jpg
+Volkswagen Crafter,Kaiserstraße 12105 Berlin,Medium,5000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/Volkswagen_Crafter_gdtzzq.jpg
+Mercedes Van XL,Karl-Marx-Straße 12043 Berlin,X-Large,4000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787313/OurTrucks/truck_2_mxrhpb.jpg
+Volkswagen Crafter,Kniprodestraße 10407 Berlin,Large,5000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/Volkswagen_Crafter_gdtzzq.jpg
+Volkswagen LT,Koppenstraße 10243 Berlin,Large,5500,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_3_ffbjkl.jpg
+Volkswagen Crafter,Oberspreestraße 12555 Berlin,Large,5000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787309/OurTrucks/truck_4_phqa2x.jpg
+Peugeot Expert,Olbersstraße 10589 Berlin,Small Van,4500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/peugot_expert_kmogrp.jpg
+Mercedes Van XXL,Parchimer Allee 12359 Berlin,X-Large,3500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787323/OurTrucks/truck_7_toqagq.jpg
+Renault Trafic,Pohlstraße 10785 Berlin,Large Van,7000,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787313/OurTrucks/truck_14_pxj9yz.jpg
+Volkswagen Caddy,Reginhardstraße 13409 Berlin,Large,6000,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787308/OurTrucks/truck_9_x5hecz.jpg
+Renault Master,Rothenburgstraße 12165 Berlin,Large Van,6500,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787307/OurTrucks/truck_6_whjlv6.jpg
+Peugeot Expert,Rudower Straße 12439 Berlin,Large,4500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/peugot_expert_kmogrp.jpg
+Volkswagen LT,Rudower Straße 12439 Berlin,Large,5500,Enough space for a 30m² apartment!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/Volkswagen_LT_mg2ruu.jpg
+Renault Kangoo,Sonnenallee 12045 Berlin,Large,7500,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881933/OurTrucks/kangoo_s1g1nc.jpg
+Volkswagen Caddy,Tile-Brügge-Weg 13509 Berlin,Small,6000,So easy to load & unload.,https://res.cloudinary.com/dzokjumuf/image/upload/v1605787308/OurTrucks/truck_8_kv58wv.jpg
+Volkswagen Crafter,Uranusstraße 12524 Berlin,Large,5000,Great vehicle!,https://res.cloudinary.com/dzokjumuf/image/upload/v1605881144/OurTrucks/Volkswagen_Crafter_gdtzzq.jpg
