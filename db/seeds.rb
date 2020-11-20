@@ -33,22 +33,20 @@ user_rentee.password = '123456'
 user_rentee.name = "Kim Kardashian"
 user_rentee.save!
 
-user_owner1 = User.new
-user_owner1.email = 'anne.owner@gmail.com' # user_owner1 to offer trucks
-user_owner1.name = "Anne Owner"
-user_owner1.password = '123456'
-user_owner1.save!
-owner_array << user_owner1
+user_owner = User.new
+user_owner.email = 'anne.owner@gmail.com' # user_owner1 to offer trucks
+user_owner.name = "Anne Owner"
+user_owner.password = '123456'
+user_owner.save!
 
 user_owner2 = User.new
-user_owner2.email = 'anne.owner2@gmail.com' # user_owner2 to offer trucks
+user_owner2.email = 'anne.other.owner@gmail.com'
 user_owner2.name = "Anne Other Owner"
 user_owner2.password = '123456'
 user_owner2.save!
-owner_array << user_owner2
+
 
 # Trucks:
-
 truck_array = []
 
 csv_text = File.read(Rails.root.join('lib', 'seeds_db', 'our_trucks_seeds.csv'))
@@ -57,7 +55,6 @@ csv.each do |row|
   p row
   t = Truck.new
   t.title = row[:title]
-  # p row[:title]
   t.location = row[:location]
   t.size = row[:size]
   t.price_per_day = row[:price_per_day]
@@ -66,7 +63,7 @@ csv.each do |row|
   file = URI.open(row[:photo_url])
   t.photos.attach(io: file, filename: 'picture')
  
-  t.user = owner_array.sample
+  t.user = user_owner
   t.save
   truck_array << t
 end
