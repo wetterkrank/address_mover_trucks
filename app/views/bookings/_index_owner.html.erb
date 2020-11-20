@@ -1,0 +1,30 @@
+<div class="owner mt-3">
+  <h3>Your fleet reservations</h3>
+  <% @bookings_as_owner.each do |booking| %>
+  <div class="card-booking">
+
+      <% if booking.truck.photos.attached? %>
+        <%= cl_image_tag booking.truck.photos.first.key, class: "card-img" %>
+      <% else %>
+        <%= image_tag "van-placeholder.jpg" %>
+      <% end %>
+
+      <div class="card-booking-info">
+        <p>
+          <strong><%= booking.truck.title %></strong>, booked by: <%= booking.user.email %><br>
+          Reservation <%= booking.status %>
+        </p>
+        <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
+        <%= simple_form_for booking, html: { class: "booking-button-inline form-inline" } do |f|%>
+        <%= f.input :status, input_html: { value: "confirmed" }, as: :hidden %>
+        <%= f.button :submit, "Confirm", disabled: finalized?(booking), class: "btn btn-sm btn-success" %>
+        <% end %>
+        <%= simple_form_for booking, html: { class: "booking-button-inline" } do |f|%>
+        <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
+        <%= f.button :submit, "Decline", disabled: finalized?(booking), class: "btn btn-sm btn-warning" %>
+        <% end %>
+      </div>
+
+  </div>
+  <% end %>
+</div>
