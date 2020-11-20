@@ -11,7 +11,7 @@
 
       <div class="card-booking-info">
         <p>
-          <strong><%= booking.truck.title %></strong>, booked by: <%= booking.user.email %><br>
+          <strong><%= booking.truck.title %></strong>, booked by: <%= booking.user.name %><br>
           Reservation <%= booking.status %>
         </p>
         <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
