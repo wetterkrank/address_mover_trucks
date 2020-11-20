@@ -8,7 +8,7 @@ class TrucksController < ApplicationController
     if params[:search].present?
       @trucks = Truck.search_by_truck_attributes(params[:search])
     else
-      @trucks = Truck.all
+      @trucks = Truck.order(created_at: :desc)
     end
     @markers = geocode(@trucks)
   end
@@ -52,7 +52,7 @@ class TrucksController < ApplicationController
         lat: truck.latitude,
         lng: truck.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { truck: truck }),
-        image_url: helpers.asset_url('lorry.png')
+        image_url: helpers.asset_url('pickup-truck.svg')
       }
     end
   end
@@ -64,4 +64,9 @@ class TrucksController < ApplicationController
   def truck_params
     params.require(:truck).permit(:title, :location, :price_per_day, :size, :description, photos: [])
   end
+
+  def sort_by_created(collection)
+    collection.sort_by { |smth| smth.created_at }.reverse
+  end
+
 end
