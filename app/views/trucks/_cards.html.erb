@@ -1,3 +1,8 @@
+ <div>
+  <h6>
+    <%= pluralize @trucks.count, "Available Trucks" %>
+  </h6>
+</div>
 <div class="cards">
   <% if @trucks.empty?%> 
     <h4> Please search again! </h4>
