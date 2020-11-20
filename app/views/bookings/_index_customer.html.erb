@@ -1,0 +1,23 @@
+<div class="customer mt-3">
+  <h3>Your reservations</h3>
+  <% @bookings_as_customer.each do |booking| %>
+    <div class="card-booking">
+
+      <% if booking.truck.photos.attached? %>
+        <%= cl_image_tag booking.truck.photos.first.key, class: "card-img" %>
+      <% else %>
+        <%= image_tag "van-placeholder.jpg" %>
+      <% end %>
+
+      <div class="card-booking-info">
+        <p>
+          <strong><%= booking.truck.title %></strong>, owned by: <%= booking.truck.user.email %><br>
+          Reservation <%= booking.status %>
+        </p>
+        <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
+        <% disabled = finalized?(booking) ? "disabled" : ""%>
+        <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-success #{disabled}" %>
+      </div>
+    </div>
+  <% end %>
+</div>
