@@ -1,40 +1,39 @@
+<div class="container mt-5 py-3 border justify-content-center show-card">
+  <div>
+ 
+    <div class="row justify-content-between">
 
-<div class="container mt-5 py-3 border justify-content-center">
-  <div class="d-flex justify-content-between">
-    <!--------------- row beginns ---------------------->
-    <div class="row truck-show">
-      <!--------------- image col beginns ---------------------->
-      <div class="col-md-8">
-          <% if @truck.photos.attached? %>
-              <%= render 'carousel' %>
-            <% else %>
-              <%= image_tag "van-placeholder.jpg" %>
+      <div class="col-md-6">
+        <% if @truck.photos.attached? %>
+          <%= render 'carousel' %>
+        <% else %>
+          <%= image_tag "van-placeholder.jpg" %>
         <% end %>
       </div>
-      <!--------------- image col ends---------------------->
 
-      <!--------------- info col beginns --------------------->
-      <div class="col-md-4">
-       <div><h3> <i class="fas fa-map-marker-alt"></i> <%= @truck.location %></h3></div>
-       <div><h1>  <%= @truck.title %> </h1></div>
-       <div> <span> Size/Type : <%= @truck.size %></span></div>
-       <br>
-       <span class="price" style="font-size: 25px"> <strong> € <%= @truck.price_per_day.to_f / 100 %> </strong></span> <span style="font-size:11px">Price per Day</span>
-       <hr>
-       <div class="d-flex justify-content-center link">
-       <!-- underneath comes the button "reserve" that starts the modal-->
-        <%= render "trucks/modal_booking" %>
+      <div class="col-md-6 mt-3 py-3">
+        <div><h3> <i class="fas fa-map-marker-alt"></i> <%= @truck.location %></h3></div>
+        <div><h1>  <%= @truck.title %> </h1></div>
+        <div> <span><%= @truck.size %></span></div>
+        <br>
+        <span style="font-size: 25px"> <strong> € <%= @truck.price_per_day.to_f / 100 %> </strong></span> <span style="font-size:11px">Price per Day</span>
+          <hr>
+          <div class="d-flex justify-content-center link">
+
+            <!-- Modal -->
+            <%= render "modal_booking" %>
+
+          </div>
+          <br>
+        <span> <strong>Description of the vehicle:</strong> </span>
+        <p><%= @truck.description %></p>
       </div>
-      <br>
-      <p> <strong>Message from the owner :</strong> </p>
-      <p><%= @truck.description %></p>
     </div>
-    <!------------------ info col ends ----------------------->
+    
   </div>
-  <!--------------- row ends ---------------------->
 </div>
 </div>
 
-<div class="container mt-3 link">
+<div class="container mt-3 pl-0 link">
   <%= link_to "Back to Search", trucks_path, class: "btn btn-outline-primary" %>
 </div>
