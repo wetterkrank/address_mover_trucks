@@ -1,57 +1,19 @@
-<div class="container mt-5">
+<div class="container dashboard mt-5">
   <h1> Dashboard </h1>
   <hr>
+
   <% if current_user.admin %>
     <%= render "index_admin" %>
   <% else %>
-    <div class="d-flex justify-content-between">
-  
-      <% unless @bookings_as_customer.empty?  %>
-        <div class="customer">
-          <h3>Your reservations</h3>
-          <% @bookings_as_customer.each do |booking| %>
-            <div class="card-booking">
-              <%= image_tag "van-placeholder.jpg" %>
-              <div class="card-booking-info">
-                <p>
-                  <strong><%= booking.truck.title %></strong>, owned by: <%= booking.truck.user.email %><br>
-                  Status: <%= booking.status %> 
-                </p>
-                <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
-                <% disabled = finalized?(booking) ? "disabled" : ""%>
-                <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-success #{disabled}" %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-  
-      <% unless @bookings_as_owner.empty?  %>
-      <div class="owner">
-        <h3>Your trucks' reservations</h3>
-        <% @bookings_as_owner.each do |booking| %>
-          <div class="card-booking">
-             <%= image_tag "van-placeholder.jpg" %>
-              <div class="card-booking-info">
-                <p>
-                  <strong><%= booking.truck.title %></strong>, booked by: <%= booking.user.email %><br>
-                  Status: <%= booking.status %> 
-                </p>
-                <%= link_to "View", booking_path(booking), class: "btn btn-sm btn-success" %>
-                <%= simple_form_for booking, html: { class: "booking-button-inline form-inline" } do |f|%>
-                  <%= f.input :status, input_html: { value: "confirmed" }, as: :hidden %>
-                  <%= f.button :submit, "Confirm", disabled: finalized?(booking), class: "btn btn-sm btn-success" %>
-                <% end %>
-                <%= simple_form_for booking, html: { class: "booking-button-inline" } do |f|%>
-                  <%= f.input :status, input_html: { value: "declined" }, as: :hidden %>
-                  <%= f.button :submit, "Decline", disabled: finalized?(booking), class: "btn btn-sm btn-warning" %>
-                <% end %>
-              </div>
-          </div>
-        <% end %>
-      </div>
-      <% end %>
-    </div>
+
+    <% unless @bookings_as_customer.empty? %>
+      <%= render "index_customer" %>
+    <% end %>
+
+    <% unless @bookings_as_owner.empty? %>
+      <%= render "index_owner" %>
+    <% end %>
+
   <% end %>
-  <%= link_to 'Back' , trucks_path,class: "btn btn-outline-primary my-3" %>
+  <%= link_to 'Back' , trucks_path,class: "btn btn-outline-primary mt-5 mb-3" %>
 </div>
