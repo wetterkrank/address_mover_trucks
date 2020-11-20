@@ -1,0 +1,21 @@
+<div class="cards">
+  <% @trucks.each do |truck| %>
+    <div class="card-product">
+    
+      <% if truck.photos.attached? %>
+        <%= cl_image_tag truck.photos.first.key, class: "card-img" %>
+      <% else %>
+        <%= image_tag "van-placeholder.jpg" %>
+      <% end %>
+        
+      <div class="card-product-info">
+        <h2><%= link_to truck.title, truck_path(truck) %></h2>
+        <hr>
+        <h3><strong><%= truck.location %> </strong></h3>
+        <h3> €xDay : <%= truck.price_per_day.to_f / 100 %></h3>
+        <h3> Size: <%= truck.size %></h3>
+      </div>
+
+    </div>
+  <% end %>
+</div>

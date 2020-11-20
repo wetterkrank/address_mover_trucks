@@ -2,14 +2,18 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mb-3">
     <%= f.input :title, label: "Brand or model", placeholder: "e.g.: Nissan Pickup" %>
     <%= f.input :location,placeholder: "e.g. Rudi-Dutschke-Straße, Berlin " %>
     <%= f.input :price_per_day, label: "Price per day in €" %>
     <%= f.input :size, label: "Size or type", placeholder: "e.g.: Four seats" %>
     <%= f.input :description, label: "Short description" , placeholder: "Is there something special about your truck you'd like to share?" %>
   </div>
-  <br>
+
+  <div class="form-photos">
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </div>
+
   <div class="btn btn-success">
     <%= f.button :submit %>
   </div>

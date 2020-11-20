@@ -2,9 +2,9 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking)
-    @bookings_as_customer = @bookings.filter { |booking| booking.user == current_user }
-    @bookings_as_owner = @bookings.filter { |booking| booking.truck.user == current_user }
+    @bookings = sort_by_created( policy_scope(Booking) )
+    @bookings_as_customer = sort_by_created( @bookings.filter { |booking| booking.user == current_user } )
+    @bookings_as_owner = sort_by_created( @bookings.filter { |booking| booking.truck.user == current_user } )
   end
 
   def show
@@ -33,23 +33,31 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking.status = "pending"
+    # @booking.status = "pending"
     authorize @booking
   end
 
   def update
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking.id)
+      if params[:commit] == "Confirm" || params[:commit] == "Decline"
+        # if called from the bookings page
+        redirect_to bookings_path, notice: "Reservation status updated"
+      elsif
+        redirect_to booking_path(@booking.id), notice: "Reservation updated"
+      end
     else
+      # something gone wrong
       render :edit
+      # redirect_to booking_path(@booking.id), notice: "Reservation not updated"
     end
+    
   end
 
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: "Booking deleted"
   end
 
   private
@@ -61,4 +69,14 @@ class BookingsController < ApplicationController
   def find_booking
     @booking = Booking.find(params[:id])
   end
+
+  def sort_by_created(collection)
+    collection.sort_by { |boo| boo.created_at }.reverse
+  end
+
+  def finalized?(booking)
+    booking.status != "pending"
+  end
+  helper_method :finalized?
+
 end

@@ -2,9 +2,12 @@ class TrucksController < ApplicationController
   before_action :find_truck, only: [:show, :update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
+  # TODO: This method is getting too long, refactor
   def index
-    # @trucks = Truck.all
+    # Get the list of trucks filtered by the access policy
     @trucks = policy_scope(Truck).order(created_at: :desc)
+
+    # Prepare the markers for the map
     @markers = @trucks.geocoded.map do |truck|
       {
         lat: truck.latitude,
@@ -13,6 +16,9 @@ class TrucksController < ApplicationController
         image_url: helpers.asset_url('lorry.png')
       }
     end
+
+    # If index was called with the search parameters
+    # this must happen before creating the markers; also, we have a security issue here
     if params[:search]
       @trucks = Truck.search_by_truck_attributes(params[:search])
     else
@@ -57,6 +63,6 @@ class TrucksController < ApplicationController
   end
 
   def truck_params
-    params.require(:truck).permit(:title, :location, :price_per_day, :size, :description)
+    params.require(:truck).permit(:title, :location, :price_per_day, :size, :description, photos: [])
   end
 end
